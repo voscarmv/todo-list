@@ -5,9 +5,17 @@ import Layout from './pages/layout';
 import Sidebar from './components/sidebar';
 import Home from './pages/home';
 import pageBody from './components/pagebody';
+import Project from './classes/project';
 
+
+const myProject1 = new Project('Project One');
+const myProject2 = new Project('Project Two');
+const myProject3 = new Project('Project Three');
+const myProject4 = new Project('Project Four');
+
+const projectList = [myProject1, myProject2, myProject3, myProject4];
 const pagecontent = (() => {
-  const container = Layout(pageBody.create(), Sidebar(), Home);
+  const container = Layout(pageBody.create(), Sidebar(projectList), Home);
   return container;
 })();
 

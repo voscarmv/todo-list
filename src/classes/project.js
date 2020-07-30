@@ -6,7 +6,7 @@ class Project {
     this.tasks = taskArray;
   }
 
-  setTasks(tasksArray){
+  setTasks(tasksArray) {
     this.tasks = tasksArray;
   }
 
@@ -15,11 +15,11 @@ class Project {
     this.tasks.push(new Task(taskName));
   }
 
-  getTasks(){
+  getTasks() {
     return this.tasks;
   }
 
-  getTask(number){
+  getTask(number) {
     return this.tasks[number];
   }
 }
