@@ -1,6 +1,8 @@
 import newElement from '../rendering/newelement';
 import listElements from '../rendering/listelements';
 import nestElements from '../rendering/nestelements';
+import projectDisplay from './projectdisplay';
+import mainContainer from './maincontainer';
 
 const Sidebar = (projects) => {
   const projectListHTML = [];
@@ -8,7 +10,8 @@ const Sidebar = (projects) => {
     projectListHTML.push(
       nestElements(
         newElement('li', 'nav-item'),
-        newElement('a', 'nav-link', project.name, null, ['href', '#']),
+        newElement('a', 'nav-link', project.name, () => { mainContainer.display(projectDisplay(project)) }, ['href', '#']),
+        // newElement('a', 'nav-link', project.name, null, ['href', '#']),
       ),
     );
   });

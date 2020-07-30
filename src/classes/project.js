@@ -16,7 +16,7 @@ class Project {
   }
 
   getTasks() {
-    return this.tasks;
+    return this.tasks || [];
   }
 
   getTask(number) {

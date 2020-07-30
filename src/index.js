@@ -15,7 +15,7 @@ const myProject4 = new Project('Project Four');
 
 const projectList = [myProject1, myProject2, myProject3, myProject4];
 const pagecontent = (() => {
-  const container = Layout(pageBody.create(), Sidebar(projectList), Home);
+  const container = Layout(pageBody.create(), projectList, Home);
   return container;
 })();
 

@@ -5,17 +5,14 @@ import newImage from '../rendering/newimage';
 
 const Home = (() => {
   const home = listElements(
-    newElement('main', 'col-md-9 ml-sm-auto col-lg-10 px-md-4', null, null, ['role', 'main']),
-    listElements(
-        newElement('div'),
-        newElement(
-          'p',
-          'home-text',
-          'Welcome to <span class="inline-logo">LOGO</span>',
-        ),
-        newElement('p', 'home-text', 'This is a todo list page.')
-      ),
-    );
+    newElement('div'),
+    newElement(
+      'p',
+      'home-text',
+      'Welcome to <span class="inline-logo">LOGO</span>',
+    ),
+    newElement('p', 'home-text', 'This is a todo list page.')
+  );
   return home;
 })();
 
