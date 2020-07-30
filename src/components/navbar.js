@@ -36,19 +36,42 @@ const Navbar = () => {
         newElement('ul', 'navbar-nav'),
         nestElements(
           newElement('li', 'nav-item active'),
-          newElement('a', 'nav-link', 'Home', () => { mainContainer.display(Home); }, ['href', '#']),
-        ),
-        nestElements(
-          newElement('li', 'nav-item'),
-          newElement('a', 'nav-link', 'Menu', () => { mainContainer.display(Menu); }, ['href', '#']),
-        ),
-        nestElements(
-          newElement('li', 'nav-item'),
-          newElement('a', 'nav-link', 'Contact', () => { mainContainer.display(Contact); }, ['href', '#']),
+          newElement(
+            'a',
+            'nav-link dropdown-toggle',
+            'Projects',
+            () => { mainContainer.display(Home); },
+            ['href', '#'],
+            ['id', 'navbarDropdown'],
+            ['role', 'button'],
+            ['data-toggle', 'dropdown'],
+            ['aria-haspopup','true'],
+            ['aria-expanded','false']
+          ),
+          listElements(
+            newElement('div', 'dropdown-menu', null, null, ['aria-labelledby','navbarDropdown']),
+            newElement('a', 'dropdown-item', '+ New Project', ['href', '#']),
+            newElement('a', 'dropdown-item', 'Project 2', ['href', '#']),
+            newElement('a', 'dropdown-item', 'Project 3', ['href', '#']),
+          ),
         ),
       ),
     ),
   );
+
+/*
+
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+
+*/
 
   return navbar;
 };

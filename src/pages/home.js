@@ -15,6 +15,7 @@ const Home = (() => {
           'home-text',
           'Welcome to <span class="inline-logo">LOGO</span>',
         ),
+        newElement('p', 'home-text', 'This is a todo list page.')
       ),
     ),
   );
