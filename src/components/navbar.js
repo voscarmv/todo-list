@@ -12,9 +12,9 @@ const Navbar = () => {
   const navbar = listElements(
     newElement('nav', 'navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow'),
     listElements(
-      newElement('a', 'navbar-brand col-md-3 col-lg-2 mr-0 px-3', null, () => { mainContainer.display(Home); }, ['href', '#']),
+      newElement('a', 'navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center', null, () => { mainContainer.display(Home); }, ['href', '#']),
       // newImage(Logo, 'logo-img d-inline-block align-top mr-2'),
-      newElement('span', 'logo', 'Title'),
+      newElement('span', 'logo', 'ToDo List'),
     ),
   );
 

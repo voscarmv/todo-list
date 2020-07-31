@@ -5,12 +5,25 @@ import mainContainer from './maincontainer';
 import NewTask from '../pages/newtask';
 
 const projectDisplay = (project) => {
+  const priorityText = ['Low', 'Normal', 'High'];
+
   const tasksListHTML = [];
   project.getTasks().forEach(task => {
     tasksListHTML.push(
-      nestElements(
-        newElement('li', 'nav-item'),
-        newElement('a', 'nav-link', task.getTitle(), null, ['href', '#']),
+      listElements(
+        newElement('tr'),
+        newElement('td', null, task.getTitle()),
+        newElement('td', null, task.getDescription()),
+        newElement('td', null, task.getDueDate()),
+        newElement('td', null, priorityText[task.getPriority() - 1]),
+        listElements(
+          newElement('td'),
+          newElement('button', 'btn btn-sm btn-primary mx-2', 'Edit'),
+        ),
+        listElements(
+          newElement('td'),
+          newElement('button', 'btn btn-sm btn-danger', 'Remove'),
+        ),
       ),
     );
   });
@@ -18,10 +31,26 @@ const projectDisplay = (project) => {
   const taskspage = listElements(
     newElement('div'),
     newElement('h1', null, project.name),
-    newElement('button', 'btn btn-primary', 'New task', () => { mainContainer.display(NewTask(project)); }),
+    newElement('button', 'btn btn-primary mr-2', 'New task', () => { mainContainer.display(NewTask(project)); }),
+    newElement('button', 'btn btn-danger', 'Delete project', null),
     listElements(
-      newElement('ul', 'nav flex-column'),
-      ...tasksListHTML,
+      newElement('table', 'table mt-3'),
+      listElements(
+        newElement('thead', 'thead-dark'),
+        listElements(
+          newElement('tr'),
+          newElement('th', null, 'TITLE'),
+          newElement('th', null, 'DESCRIPTION'),
+          newElement('th', null, 'DUE DATE'),
+          newElement('th', null, 'PRIORITY'),
+          newElement('th'),
+          newElement('th'),
+        ),
+      ),
+      listElements(
+        newElement('tbody'),
+        ...tasksListHTML,
+      ),
     ),
   );
 
