@@ -3,6 +3,7 @@ import listElements from '../rendering/listelements';
 import Task from '../classes/task';
 import Storage from '../classes/storage';
 import mainContainer from '../components/maincontainer';
+// eslint-disable-next-line import/no-cycle
 import projectDisplay from '../components/projectdisplay';
 
 const editTask = (project, task) => {

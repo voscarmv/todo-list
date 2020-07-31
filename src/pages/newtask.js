@@ -3,6 +3,7 @@ import listElements from '../rendering/listelements';
 import Task from '../classes/task';
 import Storage from '../classes/storage';
 import mainContainer from '../components/maincontainer';
+// eslint-disable-next-line import/no-cycle
 import projectDisplay from '../components/projectdisplay';
 
 const NewTask = (project) => {
@@ -21,8 +22,7 @@ const NewTask = (project) => {
 
   const newtask = listElements(
     newElement('div', 'page contact d-flex flex-column'),
-    newElement('h1', 'contact-title', 'Contact'),
-    newElement('p', 'contact-text', 'New task'),
+    newElement('h1', 'contact-title', 'New Task'),
     listElements(
       newElement('form'),
       listElements(

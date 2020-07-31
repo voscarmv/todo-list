@@ -1,5 +1,3 @@
-import Task from './task';
-
 class Project {
   constructor(projectName, taskArray) {
     this.name = projectName;

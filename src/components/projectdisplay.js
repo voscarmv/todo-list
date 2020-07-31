@@ -1,6 +1,5 @@
 import newElement from '../rendering/newelement';
 import listElements from '../rendering/listelements';
-import nestElements from '../rendering/nestelements';
 import mainContainer from './maincontainer';
 // eslint-disable-next-line import/no-cycle
 import NewTask from '../pages/newtask';
@@ -51,7 +50,6 @@ const projectDisplay = (project) => {
     newElement('div'),
     newElement('h1', null, project.name),
     newElement('button', 'btn btn-primary mr-2', 'New task', () => { mainContainer.display(NewTask(project)); }),
-    newElement('button', 'btn btn-danger', 'Delete project', null),
     listElements(
       newElement('table', 'table mt-3'),
       listElements(

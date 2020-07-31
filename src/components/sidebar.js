@@ -15,7 +15,7 @@ const Sidebar = (() => {
       projectListHTML.push(
         nestElements(
           newElement('li', 'nav-item'),
-          newElement('a', 'nav-link', project.name, () => { mainContainer.display(projectDisplay(project)) }, ['href', '#']),
+          newElement('a', 'nav-link', project.name, () => { mainContainer.display(projectDisplay(project)); }, ['href', '#']),
         ),
       );
     });
@@ -27,7 +27,7 @@ const Sidebar = (() => {
         newElement('ul', 'nav flex-column'),
         nestElements(
           newElement('li', 'text-center mb-3'),
-          newElement('btn', 'btn btn-sm btn-info', 'NEW PROJECT +', () => { mainContainer.display(newProject) }, ['href', '#']),
+          newElement('btn', 'btn btn-sm btn-info', 'NEW PROJECT +', () => { mainContainer.display(newProject); }, ['href', '#']),
         ),
         ...projectListHTML,
       ),

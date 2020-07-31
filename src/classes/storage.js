@@ -33,7 +33,9 @@ const Storage = (() => {
     Storage.setProjects(projects);
   };
 
-  return { getProjects, setProjects, addProject, getProjectsCopy };
+  return {
+    getProjects, setProjects, addProject, getProjectsCopy,
+  };
 })();
 
 export default Storage;

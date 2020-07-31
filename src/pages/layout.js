@@ -19,8 +19,8 @@ const Layout = (container, projects, content) => {
         newElement('div', 'row'),
         sidebar,
         main,
-      )
-    )
+      ),
+    ),
   );
   container.appendChild(Footer());
   return container;
