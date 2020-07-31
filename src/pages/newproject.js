@@ -23,7 +23,7 @@ const Contact = (() => {
         newElement('label', null, 'Name:', null, ['for', 'project_name']),
         newElement('input', 'form-control', null, null, ['id', 'project_name'], ['placeholder', 'Enter project name here']),
       ),
-      newElement('button', 'btn btn-warning', 'Send', () => { addRenderProject(); }),
+      newElement('button', 'btn btn-primary', 'Send', () => { addRenderProject(); }),
     ),
   );
   return contact;
