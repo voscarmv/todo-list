@@ -6,14 +6,14 @@ const Storage = (() => {
 
   const getProjects = () => JSON.parse(localStorage.getItem('projects_array') || '[]').map((project) => {
     const objProject = Object.assign(new Project(), project);
-    console.log(objProject);
-    console.log(objProject.tasks);
-
-    const lstTasks = JSON.parse(objProject.tasks || '[]').map(task => Object.assign(new Task(), task));
-
-    console.log('tasks convertidas');
-    objProject.tasks = lstTasks;
-
+    const tasksArray = [];
+    objProject.tasks = objProject.tasks || [];
+    objProject.tasks.forEach(
+      (task) => {
+        tasksArray.push(Object.assign(new Task(), task));
+      },
+    );
+    objProject.tasks = tasksArray;
     return objProject;
   });
 
