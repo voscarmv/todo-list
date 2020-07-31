@@ -1,18 +1,22 @@
 import newElement from '../rendering/newelement';
 import listElements from '../rendering/listelements';
 import Task from '../classes/task';
+import Storage from '../classes/storage';
+import mainContainer from '../components/maincontainer';
+import projectDisplay from '../components/projectdisplay';
 
 const NewTask = (project) => {
-  const addRenderTask = () => {
+  const addRenderTask = (project) => {
     const title = document.getElementById('title_task').value;
     const newTask = new Task(title);
     newTask.setPriority(document.getElementById('priority_task').value);
     newTask.setDescription(document.getElementById('description_task').value);
     newTask.setDueDate(document.getElementById('duedate_task').value);
     project.addTask(newTask);
-
-    // Storage.addProject(new Project(name, []));
-    // const projects = Storage.getProjects();
+    const projects = Storage.getProjects();
+    projects[project.getIndex()].addTask(newTask);
+    Storage.setProjects(projects);
+    mainContainer.display(projectDisplay(project));
   };
 
   const newtask = listElements(
@@ -47,7 +51,7 @@ const NewTask = (project) => {
         ),
 
       ),
-      newElement('button', 'btn btn-primary', 'Save', null),
+      newElement('button', 'btn btn-primary', 'Save', () => { addRenderTask(project); }),
     ),
   );
   return newtask;

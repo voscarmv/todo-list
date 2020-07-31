@@ -6,6 +6,14 @@ class Project {
     this.tasks = taskArray;
   }
 
+  setIndex(projectIndex) {
+    this.index = projectIndex;
+  }
+
+  getIndex() {
+    return this.index;
+  }
+
   setTasks(tasksArray) {
     this.tasks = tasksArray;
   }

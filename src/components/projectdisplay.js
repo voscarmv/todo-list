@@ -18,7 +18,7 @@ const projectDisplay = (project) => {
   const taskspage = listElements(
     newElement('div'),
     newElement('h1', null, project.name),
-    newElement('button', 'btn btn-primary', 'New task', () => { mainContainer.display(NewTask) }),
+    newElement('button', 'btn btn-primary', 'New task', () => { mainContainer.display(NewTask(project)); }),
     listElements(
       newElement('ul', 'nav flex-column'),
       ...tasksListHTML,

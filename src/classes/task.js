@@ -3,6 +3,14 @@ class Task {
     this.title = taskTitle;
   }
 
+  setIndex(taskIndex) {
+    this.index = taskIndex;
+  }
+
+  getIndex() {
+    return this.index;
+  }
+
   getTitle() {
     return this.title;
   }
