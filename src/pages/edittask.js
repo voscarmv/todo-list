@@ -17,6 +17,7 @@ const editTask = (project, task) => {
     const tasks = projects[project.getIndex()].getTasks();
     tasks[task.getIndex()] = newTask;
     project.setTasks(tasks);
+    projects[project.getIndex()] = project;
     Storage.setProjects(projects);
     mainContainer.display(projectDisplay(project));
   };

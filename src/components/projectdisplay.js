@@ -6,9 +6,20 @@ import mainContainer from './maincontainer';
 import NewTask from '../pages/newtask';
 // eslint-disable-next-line import/no-cycle
 import editTask from '../pages/edittask';
+import Storage from '../classes/storage';
 
 const projectDisplay = (project) => {
   const priorityText = ['Low', 'Normal', 'High'];
+
+  const removeTask = (taskIndex) => {
+    const projects = Storage.getProjects();
+    const tasks = project.getTasks();
+    tasks.splice(taskIndex, 1);
+    project.setTasks(tasks);
+    projects[project.getIndex()] = project;
+    Storage.setProjects(projects);
+    mainContainer.display(projectDisplay(project));
+  };
 
   const tasksListHTML = [];
   project.getTasks().forEach(task => {
@@ -30,7 +41,7 @@ const projectDisplay = (project) => {
         ),
         listElements(
           newElement('td'),
-          newElement('button', 'btn btn-sm btn-danger', 'Remove'),
+          newElement('button', 'btn btn-sm btn-danger', 'Remove', () => removeTask(task.getIndex())),
         ),
       ),
     );
