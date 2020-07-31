@@ -4,11 +4,11 @@ import nestElements from '../rendering/nestelements';
 
 const projectDisplay = (project) => {
   const tasksListHTML = [];
-  project.getTasks().forEach(project => {
+  project.getTasks().forEach(task => {
     tasksListHTML.push(
       nestElements(
         newElement('li', 'nav-item'),
-        newElement('a', 'nav-link', project.name, null, ['href', '#']),
+        newElement('a', 'nav-link', task.getTitle(), null, ['href', '#']),
       ),
     );
   });

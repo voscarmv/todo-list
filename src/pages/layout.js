@@ -9,14 +9,15 @@ import newElement from '../rendering/newelement';
 const Layout = (container, projects, content) => {
   const main = mainContainer.create();
   main.appendChild(content);
+  const sidebar = Sidebar.create(projects);
   container.innerHTML = '';
   container.appendChild(NavBar());
   container.appendChild(
     nestElements(
-      newElement('div', 'container-fluid', null, null, ['id', name]),
+      newElement('div', 'container-fluid'),
       listElements(
         newElement('div', 'row'),
-        Sidebar(projects),
+        sidebar,
         main,
       )
     )

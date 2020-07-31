@@ -20,7 +20,8 @@ Storage.setProjects([myProject1, myProject2]);
 const myProject3 = new Project('Project Three');
 const myProject4 = new Project('Project Four');
 
-const projectList = [myProject1, myProject2, myProject3, myProject4];
+//const projectList = [myProject1, myProject2, myProject3, myProject4];
+const projectList = Storage.getProjects();
 const pagecontent = (() => {
   const container = Layout(pageBody.create(), projectList, Home);
   return container;
