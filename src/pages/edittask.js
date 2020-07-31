@@ -12,6 +12,7 @@ const editTask = (project, task) => {
     newTask.setPriority(document.getElementById('priority_task').value);
     newTask.setDescription(document.getElementById('description_task').value);
     newTask.setDueDate(document.getElementById('duedate_task').value);
+    newTask.setIndex(task.getIndex());
     const projects = Storage.getProjects();
     const tasks = projects[project.getIndex()].getTasks();
     tasks[task.getIndex()] = newTask;
