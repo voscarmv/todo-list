@@ -2,7 +2,10 @@ import newElement from '../rendering/newelement';
 import listElements from '../rendering/listelements';
 import nestElements from '../rendering/nestelements';
 import mainContainer from './maincontainer';
+// eslint-disable-next-line import/no-cycle
 import NewTask from '../pages/newtask';
+// eslint-disable-next-line import/no-cycle
+import editTask from '../pages/edittask';
 
 const projectDisplay = (project) => {
   const priorityText = ['Low', 'Normal', 'High'];
@@ -18,7 +21,12 @@ const projectDisplay = (project) => {
         newElement('td', null, priorityText[task.getPriority() - 1]),
         listElements(
           newElement('td'),
-          newElement('button', 'btn btn-sm btn-primary mx-2', 'Edit'),
+          newElement(
+            'button',
+            'btn btn-sm btn-primary mx-2',
+            'Edit',
+            () => { mainContainer.display(editTask(project, task)); },
+          ),
         ),
         listElements(
           newElement('td'),
