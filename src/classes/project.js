@@ -10,9 +10,9 @@ class Project {
     this.tasks = tasksArray;
   }
 
-  addTask(taskName) {
+  addTask(task) {
     this.tasks = this.tasks || [];
-    this.tasks.push(new Task(taskName));
+    this.tasks.push(task);
   }
 
   getTasks() {
