@@ -14,6 +14,11 @@ const projectDisplay = (project) => {
     const projects = Storage.getProjects();
     const tasks = project.getTasks();
     tasks.splice(taskIndex, 1);
+    tasks.forEach(
+      (task, taskIndex) => {
+        task.setIndex(taskIndex);
+      },
+    );
     project.setTasks(tasks);
     projects[project.getIndex()] = project;
     Storage.setProjects(projects);

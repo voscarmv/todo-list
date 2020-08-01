@@ -5,8 +5,14 @@ import Layout from './pages/layout';
 import Home from './pages/home';
 import pageBody from './components/pagebody';
 import Storage from './classes/storage';
+import Project from './classes/project';
 
-const projectList = Storage.getProjects();
+let projectList = Storage.getProjects();
+if (projectList.length === 0) {
+  projectList.push(new Project('Default project'));
+  Storage.setProjects(projectList);
+  projectList = Storage.getProjects();
+}
 const pagecontent = (() => {
   const container = Layout(pageBody.create(), projectList, Home);
   return container;
