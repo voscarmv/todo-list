@@ -1,7 +1,5 @@
 import Task from './task';
 import Storage from './storage';
-import mainContainer from '../components/maincontainer';
-import projectDisplay from '../components/projectdisplay';
 
 const storageManager = (() => {
   const addRenderTask = (project, priority, description, duedate) => {
@@ -11,13 +9,46 @@ const storageManager = (() => {
     newTask.setDescription(description);
     newTask.setDueDate(duedate);
     project.addTask(newTask);
+    project.tasks.forEach(
+      (task, taskIndex) => {
+        task.setIndex(taskIndex);
+      },
+    );
     const projects = Storage.getProjects();
     projects[project.getIndex()].addTask(newTask);
     Storage.setProjects(projects);
-    mainContainer.display(projectDisplay(project));
   };
 
-  return { addRenderTask };
+  const editRenderTask = (project, task, tasktitle, priority, description, duedate) => {
+    const title = tasktitle;
+    const newTask = new Task(title);
+    newTask.setPriority(priority);
+    newTask.setDescription(description);
+    newTask.setDueDate(duedate);
+    newTask.setIndex(task.getIndex());
+    const projects = Storage.getProjects();
+    const tasks = projects[project.getIndex()].getTasks();
+    tasks[task.getIndex()] = newTask;
+    project.setTasks(tasks);
+    projects[project.getIndex()] = project;
+    Storage.setProjects(projects);
+  };
+
+  const removeTask = (project, task) => {
+    const projects = Storage.getProjects();
+    const tasks = project.getTasks();
+    tasks.splice(task.getIndex(), 1);
+    tasks.forEach(
+      (task, taskIndex) => {
+        task.setIndex(taskIndex);
+      },
+    );
+    project.setTasks(tasks);
+    projects[project.getIndex()] = project;
+    Storage.setProjects(projects);
+  };
+
+  return { addRenderTask, editRenderTask, removeTask };
 })();
 
 export default storageManager;
