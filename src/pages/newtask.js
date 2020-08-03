@@ -1,19 +1,24 @@
 import newElement from '../rendering/newelement';
 import listElements from '../rendering/listelements';
+// import storageManager from '../classes/storagemanager';
 import Task from '../classes/task';
 import Storage from '../classes/storage';
 import mainContainer from '../components/maincontainer';
-// eslint-disable-next-line import/no-cycle
 import projectDisplay from '../components/projectdisplay';
 
 const NewTask = (project) => {
-  const addRenderTask = (project) => {
+  const addRenderTask = (project, priority, description, duedate) => {
     const title = document.getElementById('title_task').value;
     const newTask = new Task(title);
-    newTask.setPriority(document.getElementById('priority_task').value);
-    newTask.setDescription(document.getElementById('description_task').value);
-    newTask.setDueDate(document.getElementById('duedate_task').value);
+    newTask.setPriority(priority);
+    newTask.setDescription(description);
+    newTask.setDueDate(duedate);
     project.addTask(newTask);
+    project.tasks.forEach(
+      (task, taskIndex) => {
+        task.setIndex(taskIndex);
+      },
+    );
     const projects = Storage.getProjects();
     projects[project.getIndex()].addTask(newTask);
     Storage.setProjects(projects);
@@ -51,7 +56,19 @@ const NewTask = (project) => {
         ),
 
       ),
-      newElement('button', 'btn btn-primary', 'Save', () => { addRenderTask(project); }),
+      newElement(
+        'button',
+        'btn btn-primary',
+        'Save',
+        () => {
+          addRenderTask(
+            project,
+            document.getElementById('priority_task').value,
+            document.getElementById('description_task').value,
+            document.getElementById('duedate_task').value,
+          );
+        },
+      ),
     ),
   );
   return newtask;

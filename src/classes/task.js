@@ -11,6 +11,10 @@ class Task {
     return this.index;
   }
 
+  setTitle(taskTitle) {
+    this.title = taskTitle;
+  }
+
   getTitle() {
     return this.title;
   }
