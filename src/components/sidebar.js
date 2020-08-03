@@ -3,7 +3,6 @@ import listElements from '../rendering/listelements';
 import nestElements from '../rendering/nestelements';
 import projectDisplay from './projectdisplay';
 import mainContainer from './maincontainer';
-// eslint-disable-next-line import/no-cycle
 import newProject from '../pages/newproject';
 
 const Sidebar = (() => {

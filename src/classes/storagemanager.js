@@ -1,7 +1,13 @@
+import Project from './project';
 import Task from './task';
 import Storage from './storage';
 
 const storageManager = (() => {
+  const addRenderProject = (name) => {
+    Storage.addProject(new Project(name, []));
+    return Storage.getProjects();
+  };
+
   const addRenderTask = (project, priority, description, duedate) => {
     const title = document.getElementById('title_task').value;
     const newTask = new Task(title);
@@ -48,7 +54,9 @@ const storageManager = (() => {
     Storage.setProjects(projects);
   };
 
-  return { addRenderTask, editRenderTask, removeTask };
+  return {
+    addRenderTask, editRenderTask, removeTask, addRenderProject,
+  };
 })();
 
 export default storageManager;
