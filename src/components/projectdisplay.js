@@ -13,47 +13,45 @@ const projectDisplay = (project) => {
     return null;
   };
 
-  const taskForm = (tasktitle, description, duedate, priority, save) => {
-    return listElements(
-      newElement('div', 'page contact d-flex flex-column'),
-      newElement('h1', 'contact-title', 'Contact'),
-      newElement('p', 'contact-text', 'New task'),
+  const taskForm = (tasktitle, description, duedate, priority, save) => listElements(
+    newElement('div', 'page contact d-flex flex-column'),
+    newElement('h1', 'contact-title', 'Contact'),
+    newElement('p', 'contact-text', 'New task'),
+    listElements(
+      newElement('form'),
       listElements(
-        newElement('form'),
+        newElement('div', 'form-group'),
+        newElement('label', null, 'Title:', null, ['for', 'title_task']),
+        newElement('input', 'form-control', null, null, ['id', 'title_task'], ['placeholder', 'Title task'], ['value', tasktitle]),
+      ),
+      listElements(
+        newElement('div', 'form-group'),
+        newElement('label', null, 'Description:', null, ['for', 'description_task']),
+        newElement('input', 'form-control', null, null, ['id', 'description_task'], ['placeholder', 'A little description of the task'], ['value', description]),
+      ),
+      listElements(
+        newElement('div', 'form-group'),
+        newElement('label', null, 'Due date:', null, ['for', 'duedate_task']),
+        newElement('input', 'form-control', null, null, ['id', 'duedate_task'], ['type', 'date'], ['value', duedate]),
+      ),
+      listElements(
+        newElement('div', 'form-group'),
+        newElement('label', null, 'Priority:', null, ['for', 'priority_task']),
         listElements(
-          newElement('div', 'form-group'),
-          newElement('label', null, 'Title:', null, ['for', 'title_task']),
-          newElement('input', 'form-control', null, null, ['id', 'title_task'], ['placeholder', 'Title task'], ['value', tasktitle]),
-        ),
-        listElements(
-          newElement('div', 'form-group'),
-          newElement('label', null, 'Description:', null, ['for', 'description_task']),
-          newElement('input', 'form-control', null, null, ['id', 'description_task'], ['placeholder', 'A little description of the task'], ['value', description]),
-        ),
-        listElements(
-          newElement('div', 'form-group'),
-          newElement('label', null, 'Due date:', null, ['for', 'duedate_task']),
-          newElement('input', 'form-control', null, null, ['id', 'duedate_task'], ['type', 'date'], ['value', duedate]),
-        ),
-        listElements(
-          newElement('div', 'form-group'),
-          newElement('label', null, 'Priority:', null, ['for', 'priority_task']),
-          listElements(
-            newElement('select', 'form-control', null, null, ['id', 'priority_task']),
-            newElement('option', null, 'Low', null, ['value', '1'], selectedStatus(priority, 1)),
-            newElement('option', null, 'Normal', null, ['value', '2'], selectedStatus(priority, 2)),
-            newElement('option', null, 'High', null, ['value', '3'], selectedStatus(priority, 3)),
-          ),
-        ),
-        newElement(
-          'button',
-          'btn btn-primary',
-          'Save',
-          save,
+          newElement('select', 'form-control', null, null, ['id', 'priority_task']),
+          newElement('option', null, 'Low', null, ['value', '1'], selectedStatus(priority, 1)),
+          newElement('option', null, 'Normal', null, ['value', '2'], selectedStatus(priority, 2)),
+          newElement('option', null, 'High', null, ['value', '3'], selectedStatus(priority, 3)),
         ),
       ),
-    );
-  };
+      newElement(
+        'button',
+        'btn btn-primary',
+        'Save',
+        save,
+      ),
+    ),
+  );
 
   const editTask = (project, task) => {
     const edittask = taskForm(

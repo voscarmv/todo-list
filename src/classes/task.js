@@ -31,10 +31,6 @@ class Task {
     return this.duedate;
   }
 
-  setTitle(taskTitle) {
-    this.title = taskTitle;
-  }
-
   setDescription(taskDescription) {
     this.description = taskDescription;
   }
