@@ -2,6 +2,9 @@
 
 > An app to keep track of To-Do's. A solution to The Odin Project's [ToDo List project](https://www.theodinproject.com/courses/javascript/lessons/todo-list).
 
+![ToDoList](https://user-images.githubusercontent.com/36812672/89224394-072a8e80-d59e-11ea-9655-5c07df741168.png)
+
+
 ## Built With
 
 - Javascript
