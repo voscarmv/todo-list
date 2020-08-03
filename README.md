@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-Check out the live demo [here](https://rawcdn.githack.com/voscarmv/todo-list/5214825524357f57e7c2f2a5b089b3ea782c725d/dist/index.html).
+Check out the live demo [here](https://rawcdn.githack.com/voscarmv/todo-list/d9775b7795b117239a42262f8391a35b3bea735d/dist/index.html).
 
 ### Prerequisites
 - Install Node JS. ([NodeJS Documentation](https://nodejs.org/en/docs/)) 
