@@ -43,6 +43,10 @@ Check out the live demo [here](https://rawcdn.githack.com/voscarmv/todo-list/810
 - Twitter: [@voscarmv](https://twitter.com/voscarmv)
 - Linkedin: [Oscar Mier](https://www.linkedin.com/in/oscar-mier-072984196/) 
 
+## Future features and imrovements
+
+- Replace LocalStorage with Firebase.
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!. Feel free to check the [issues page](../../issues/).
